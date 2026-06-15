@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sobre | LinBeauty</title>
+
+    <link rel="stylesheet" href="indexcss.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        .sobre{
+            padding:100px 10%;
+            text-align:center;
+            background:#ffffff;
+        }
+
+        .sobre h1{
+            font-family:'Playfair Display',serif;
+            font-size:4rem;
+            margin-bottom:30px;
+            color:#333;
+        }
+
+        .sobre h1 span{
+            color:#DF8E8E;
+        }
+
+        .sobre p{
+            max-width:900px;
+            margin:0 auto 25px;
+            line-height:2;
+            color:#555;
+            font-size:1.05rem;
+        }
+
+        .cards{
+            margin-top:70px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        }
+
+        .card{
+            background:#fff;
+            padding:35px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,.08);
+            transition:.4s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .card h3{
+            color:#DF8E8E;
+            margin-bottom:15px;
+            font-size:1.5rem;
+        }
+
+        .card p{
+            margin:0;
+            line-height:1.8;
+        }
+
+        .reveal{
+            opacity:0;
+            transform:translateY(50px);
+            transition:1s ease;
+        }
+
+        .reveal.active{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        @media(max-width:768px){
+
+            .sobre{
+                padding:70px 8%;
+            }
+
+            .sobre h1{
+                font-size:2.5rem;
+            }
+
+            .cards{
+                grid-template-columns:1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">.LinBeauty</div>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="index.html#maquiagem">Maquiagem</a>
+        <a href="index.html#skincare">Cuidados</a>
+        <a href="sobre.html">Sobre</a>
+    </nav>
+
+</header>
+
+<section class="sobre reveal">
+
+    <h1>Sobre a <span>LinBeauty</span></h1>
+
+    <p>
+        A LinBeauty é um espaço criado para compartilhar informações,
+        dicas e conhecimentos sobre o universo da maquiagem, beleza,
+        autoestima e cuidados femininos. Nosso objetivo é tornar esse
+        mundo mais acessível, ajudando cada pessoa a descobrir novas
+        formas de valorizar sua beleza natural.
+    </p>
+
+    <p>
+        Mais do que falar sobre produtos ou tendências, buscamos
+        apresentar conteúdos educativos que expliquem técnicas,
+        estilos, cuidados com a pele e hábitos que contribuem para
+        o bem-estar e a confiança no dia a dia.
+    </p>
+
+    <p>
+        Acreditamos que a beleza está diretamente ligada ao
+        autoconhecimento e à liberdade de expressão. Por isso,
+        nosso conteúdo procura informar, inspirar e incentivar
+        cada pessoa a encontrar aquilo que melhor representa sua
+        personalidade.
+    </p>
+
+    <div class="cards">
+
+        <div class="card reveal">
+
+            <h3> Maquiagem</h3>
+
+            <p>
+                Conteúdos sobre técnicas, estilos, tendências e
+                diferentes tipos de maquiagem, desde produções
+                simples para o cotidiano até maquiagens artísticas.
+            </p>
+
+        </div>
+
+        <div class="card reveal">
+
+            <h3> Cuidados Femininos</h3>
+
+            <p>
+                Informações sobre skincare, saúde da pele,
+                hidratação, proteção solar e hábitos que ajudam
+                a manter a pele saudável e bonita.
+            </p>
+
+        </div>
+
+        <div class="card reveal">
+
+            <h3> Autoestima</h3>
+
+            <p>
+                A beleza vai além da aparência. Compartilhamos
+                conteúdos que incentivam o autocuidado, a
+                confiança e o bem-estar em todas as fases da vida.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 LinBeauty • Conteúdo informativo sobre maquiagem,
+        beleza, autoestima e cuidados femininos.
+    </p>
+
+</footer>
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealElements(){
+
+    reveals.forEach(element=>{
+
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if(elementTop < windowHeight - 100){
+            element.classList.add('active');
+        }
+
+    });
+
+}
+
+window.addEventListener('scroll', revealElements);
+
+revealElements();
+
+</script>
+
+</body>
+</html>
